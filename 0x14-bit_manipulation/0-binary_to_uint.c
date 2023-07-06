@@ -1,4 +1,4 @@
-#include "stdio.h"
+#include "holberton.h"
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int res = 0;
