@@ -1,33 +1,14 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "holberton.h"
+#include "main.h"
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int len = 0, count = 0, sum = 0;
-
-	if (b == NULL)
-		return (0);
-
-	len = _strlen(b);
-	while (len--)
-	{
-		if (b[len] != 48 && b[len] != 49)
-			return (0);
-
-		if (b[len] == 49)
-			sum += 1 << count;
-
-		count++;
-	}
-
-	return (sum);
-}
-int _strlen(const char *s)
+int i;
+unsigned int dec_val = 0;
+if (!b) return (0);
+for (i = 0; b[i]; i++)
 {
-	int c = 0;
-
-	while (s[c])
-		c++;
-
-	return (c);
+if (b[i] < '0' || b[i] > '1')
+	return (0);
+dec_val = 2 * dec_val + (b[i] - '0');
+}
+return (dec_val);
 }
