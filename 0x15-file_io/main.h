@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define READ_ZAHRA_SIZE 1024
+#define READ_BUF_SIZE 1024
 
 int _putchar(char a);
 ssize_t read_textfile(const char *filename, size_t letters);
