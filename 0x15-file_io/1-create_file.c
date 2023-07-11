@@ -16,6 +16,9 @@ int create_file(const char *filename, char *text_content)
 	fg = open(filename, O_TRUNC, S_IRUSR | O_WRONLY | O_CREAT | S_IWUSR);
         if (fg < 0)
 	        return (-1);
+	while (text_content && text_content[len])
+		len++;
+
 	if (len)
 		bytes = write(fg, text_content, len);
 	close(fg);
