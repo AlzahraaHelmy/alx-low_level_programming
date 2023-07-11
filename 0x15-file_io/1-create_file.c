@@ -23,3 +23,4 @@ int create_file(const char *filename, char *text_content)
 		bytes = write(fg, text_content, len);
 	close(fg);
 	return (bytes == len ? 1 : -1);
+}
