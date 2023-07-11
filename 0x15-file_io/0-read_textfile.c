@@ -7,33 +7,23 @@
  * @letters: The number of letters the
  *           function should read and print.
  *
- * Return: If the function fails or filename is NULL - 0.
- *         O/w - the actual number of bytes the function can read and print.
+ * Return: number  bytes read/printed
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t a, r, z;
-	char *buffer;
+	int fg;
+	ssize_t bytes;
+	char buf[READ_ZA_SIZE *8];
 
 	if (filename == NULL)
 		return (0);
 
-	buffer = malloc(sizeof(char) * letters);
-	if (buffer == NULL)
+	fg = open(filename, O_RDONLY);
+	if (fg == NULL)
 		return (0);
-
-	a = open(filename, O_RDONLY);
-	r = read(o, buffer, letters);
-	z = write(STDOUT_FILENO, buffer, r);
-
-	if (o == -1 || r == -1 || w == -1 || w != r)
-	{
-		free(buffer);
+        bytes = read(fg, &buf[0], letters);  
+        bytes = write(STDOUT_FILENO, &buf[0], bytes);
 		return (0);
-	}
-
-	free(buffer);
-	close(a);
-
-	return (z);
+	close(fg);
+	return (bytes);
 }	        	
