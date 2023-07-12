@@ -9,30 +9,30 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd;
-	int nletters;
+	int fid;
+	int nl;
 	int rwr;
 
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+	fid = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 
-	if (fd < 0)
+	if (fid < 0)
 		return (-1);
 
 	if (!text_content)
 		text_content = "";
 
-	for (nletters = 0; text_content[nletters]; nletters++)
+	for (nl = 0; text_content[nl]; nl++)
 		;
 
-	rwr = write(fd, text_content, nletters);
+	rwr = write(fid, text_content, nl);
 
-	if (rwr == -1)
+	if (rwr < 0)
 		return (-1);
 
-	close(fd);
+	close(fid);
 
 	return (1);
 }
