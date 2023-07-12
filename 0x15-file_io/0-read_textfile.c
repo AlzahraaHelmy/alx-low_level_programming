@@ -8,16 +8,16 @@
  *
  * Return: number of the bytes read/printed .
  */
-ssize_t read_textfile(const char *fname, size_t letters)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	ssize_t nrd, nwr;
 	char *buf;
 
-	if (!fname)
+	if (!filename)
 		return (0);
 
-	fd = open(fname, O_RDONLY);
+	fd = open(filename, O_RDONLY);
 
 	if (fd == -1)
 		return (0);
