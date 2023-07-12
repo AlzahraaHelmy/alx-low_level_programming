@@ -10,14 +10,14 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
+	int filed;
 	ssize_t nrd, nwr;
 	char *buf;
 
-	if (filename==NULL)
+	if (!filename)
 		return (0);
 
-	fd = open(filename, O_RDONLY);
+	filed = open(filename, O_RDONLY);
 
 	if (fd < 0)
 		return (0);
@@ -26,10 +26,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!buf)
 		return (0);
 
-	nrd = read(fd, buf, letters);
+	nrd = read(filed, buf, letters);
 	nwr = write(STDOUT_FILENO, buf, nrd);
 
-	close(fd);
+	close(filed);
 
 	free(buf);
 
