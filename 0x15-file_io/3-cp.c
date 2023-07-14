@@ -31,7 +31,7 @@ void error_file(int file_from, int file_to, char *argv[])
 int main(int argc, char *argv[])
 {
 	int file_from, file_to, ero_close;
-	ssize_t nchars, nu;
+	ssize_t nc, nu;
 	char buf[1024];
 
 	if (argc != 3)
@@ -44,13 +44,13 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file(file_from, file_to, argv);
 
-	nchars = 1024;
-	while (nchars == 1024)
+	nc = 1024;
+	while (nc == 1024)
 	{
-		nchars = read(file_from, buf, 1024);
-		if (nchars == -1)
+		nc = read(file_from, buf, 1024);
+		if (nc == -1)
 			error_file(-1, 0, argv);
-		nu = write(file_to, buf, nchars);
+		nu = write(file_to, buf, nc);
 		if (nu == -1)
 			error_file(0, -1, argv);
 	}
