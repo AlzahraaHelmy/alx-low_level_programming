@@ -1,26 +1,26 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_create - Creates table.
- * @size: The size .
+ * hash_table_create - Creates a hash table.
+ * @s: The size 
  *
- * Return: insomuch as an error occurs - NULL
+ * Return: If an error occurs - NULL.
  */
-hash_table_t *hash_table_create(unsigned long int size)
+hash_table_t *hash_table_create(unsigned long int s)
 {
-	hash_table_t *ht;
+	hash_table_t *h_t;
 	unsigned long int i;
 
-	ht = malloc(sizeof(hash_table_t));
-	if (ht == NULL)
+	h_t = malloc(sizeof(hash_table_t));
+	if (h_t == NULL)
 		return (NULL);
 
-	ht->size = size;
-	ht->array = malloc(sizeof(hash_node_t *) * size);
-	if (ht->array == NULL)
+	h_t->size = size;
+	h_t->array = malloc(sizeof(hash_node_t *) * s);
+	if (h_t->array == NULL)
 		return (NULL);
 	for (i = 0; i < size; i++)
-		ht->array[i] = NULL;
+		h_t->array[i] = NULL;
 
-	return (ht);
+	return (h_t);
 }
