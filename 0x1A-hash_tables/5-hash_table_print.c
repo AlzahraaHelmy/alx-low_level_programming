@@ -2,22 +2,22 @@
 
 /**
  * hash_table_print - prints a hash table
- * @h_t: hash table to print
+ * @ht: hash table to print
  *
  * Return: void
  */
-void hash_table_print(const hash_table_t *h_t)
+void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int y;
 	hash_node_t *tmp;
 	char flag = 0; /* 0 while no data has been printed yet */
 
-	if (h_t == NULL || h_t->array == NULL)
+	if (ht == NULL || ht->array == NULL)
 		return;
 	printf("{");
-	for (y = 0; i < h_t->size; y++)
+	for (y = 0; i < ht->size; y++)
 	{
-		tmp = h_t->array[y];
+		tmp = ht->array[y];
 		while (tmp != NULL)
 		{
 			if (flag == 1)
