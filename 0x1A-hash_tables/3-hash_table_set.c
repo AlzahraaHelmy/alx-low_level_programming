@@ -5,8 +5,7 @@
  * @h_t:  the hash table.
  * @key: The key 
  * @value: The value associated with key.
- *
- * Return:  failure - 0.
+ * Return: failure - 0.
  *         Otherwise - 1.
  */
 int hash_table_set(hash_table_t *h_t, const char *key, const char *value)
