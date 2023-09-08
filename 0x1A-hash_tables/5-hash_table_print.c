@@ -6,7 +6,7 @@
  *
  * Return: void
  */
-void hash_table_print(const hash_table_t *ht)
+void hash_table_print(const hash_table_t *h_t)
 {
 	unsigned long int y;
 	hash_node_t *tmp;
